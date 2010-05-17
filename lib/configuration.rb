@@ -1,7 +1,3 @@
-require 'yaml'
-require 'ostruct'
-require 'pathname'
-
 KHARITES_ROOT = File.join(File.expand_path(File.dirname(__FILE__)), '..') unless defined?(KHARITES_ROOT)
 
 module Kharites

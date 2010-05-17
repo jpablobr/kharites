@@ -1,5 +1,3 @@
-require 'date'
-
 module Kharites
   class Article
 
