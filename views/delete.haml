@@ -1,0 +1,7 @@
+.content
+  %form{:action => "/past/#{url_for(@note)}/delete", :method => "post", :name => "delete"}
+    .admin
+      %p
+        Are you sure you want to delete "#{@note.title}"?
+      %input{:type => "submit", :value => "Delete"}/
+      %input{:onclick => "history.go(-1)", :type => "button", :value => "Cancel"}/

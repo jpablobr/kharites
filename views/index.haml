@@ -1,0 +1,64 @@
+.grid_6#download
+  - if @notes.nil?
+    %h2 
+      Fresh install (
+      %a#index-login{ :href => "/notes/login"}
+        log in
+      ) , then (
+      %a#index-login{ :href => "/notes/new"}
+        create a note
+      ) :)
+  - else
+    %h2 DOWNLOAD KHARITES 
+    %a.image-border{:href => "http://github.com/jpablobr/kharites/tarball/master"}
+      %img{:src => "http://github.com/images/modules/download/tar.png", :width => "120"}
+    %a.image-border{:href => "http://github.com/jpablobr/kharites/zipball/master"}
+      %img{:src => "http://github.com/images/modules/download/zip.png", :width => "120"}
+ 
+.grid_6
+  %h3#links
+    %ul
+      %li
+        %a#green{:href => "http://github.com/jpablobr/kharites"} Code
+      %li 
+        %a#red{:href => "http://www.sinatrarb.com/"} Sinatra
+      %li 
+        %a#blue{:href => "http://www.mongodb.org/"} Mongodb 
+      %li 
+        %a#yellow{:href => "http://github.com/jpablobr/kharites-tools"} Kharites-tools
+      %li 
+        %a#purple{:href => "http://blog.peepcode.com/tutorials/2010/about-this-blog"} Peepcode's blog
+
+.grid_12
+  .grid_6#notes
+    .box
+      %h2 
+        Notes
+        %h3.toggler Links
+        - @notes.each do |note|
+          %ul
+            %li 
+              %a{ :href => "/past/#{url_for(note)}"}
+                = note.title
+        %h3.toggler Snippet
+        %pre
+          %code.ruby
+            :preserve
+              - @notes.each do |note|
+                = url_for(note)
+  .grid_6#articles
+    .box
+      %h2 
+        Articles
+        %h3.toggler Links
+        -  @articles.each do |article|
+          %ul
+            %li 
+              %a{ :href => "/#{article.slug}"}
+                = article.title
+        %h3.toggler Snippet
+        %pre
+          %code.ruby
+            :preserve
+              - @articles.each do |article|
+                = article.slug

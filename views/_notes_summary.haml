@@ -1,0 +1,20 @@
+- for note in notes
+  .note
+    %p.date
+      = note.created_at.to_date.strftime("%B %d, %Y")
+    %h2.title
+      %a{:href => url_for(note)}
+        = note.title
+    .entry
+      tags:
+      = haml :_tag_list, :layout => false, :locals => {:note => note}
+      = md(note.summary)
+      - if note.more?
+        %a{:href => url_for(note)} 
+        Continue reading »
+      %p.meta
+        %small
+          - if Kharites::Configuration.disqus_shortname
+            %a{:href => "#{url_for(note)}#disqus_thread"} 
+              comments
+

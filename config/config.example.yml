@@ -1,0 +1,23 @@
+kharites:
+  title:  "Kharites"
+  name:   "Kharites"
+  author: "author"
+  email:  "author@email.com"
+
+admin:
+  login: 'admin'
+  password: 'admin'
+
+ mongodb:
+   host: 'localhost'
+   port: 27017
+   db: 'kharites'
+   user: 'db_admin'
+   password: 'db_password'
+
+data_directory: "articles" #git repo!
+feedburner: 'http://feedburner-url-optional.com/'
+url_base: 'http://your_full_url.com'
+disqus_shortname: ~
+google_analytics: ~
+github_token: ~

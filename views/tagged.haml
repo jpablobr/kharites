@@ -1,0 +1,4 @@
+.content
+  %h1
+    Notes tagged with: "#{@tag}"
+  = haml :_notes_summary, :layout => false, :locals => {:notes => @notes}

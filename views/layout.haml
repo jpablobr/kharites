@@ -1,0 +1,26 @@
+!!! Strict
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %title= @title
+    %meta{:content => "en", "http-equiv" => "content-language"}/
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}/
+    %meta{:content => "text/javascript", "http-equiv" => "content-script-type"}/
+    %meta{:content => "text/css", "http-equiv" => "content-style-type"}/
+    %meta{:content => "no", "http-equiv" => "imagetoolbar"}/
+    %meta{:content => "en", :name => "language"}/
+    %meta{:content => "7 days", :name => "revisit-after"}/
+    %meta{:content => "index,follow", :name => "robots"}/
+    %meta{:content => "#{Kharites::Configuration.kharites.autho}r", :name => "publisher"}/
+    %meta{:content => "Copyright #{Kharites::Configuration.kharites.author} #{Date.today.year}", :name => "copyright"}/
+    %meta{:content => " #{Kharites::Configuration.kharites.author}, supported by  #{Kharites::Configuration.kharites.title} #{Kharites::Configuration.kharites.base_url}", :name => "author"}/
+    %link{:href => feed_url, :rel => "alternate", :title => "Primary Feed", :type => "application/atom+xml"}
+    - %w{ reset text 960 grid nav layout application }.each do |css|
+      %link{ :href => "/stylesheets/#{css}.css", :rel => "stylesheet", :type => "text/css", :media => "screen", :charset => "utf-8" }
+    %body
+      .container_12
+        .main
+          .grid_12
+            %h1#branding
+              %a{:href => "/"} Kharites
+            = yield
+      = haml :_footer, :layout => false

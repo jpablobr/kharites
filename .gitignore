@@ -1,0 +1,9 @@
+.bundle
+.DS_Store
+*/.DS_Store
+log/*.log
+config/config.yml
+config/deploy.rb
+test/fixtures/*
+doc
+REVISION

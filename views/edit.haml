@@ -1,0 +1,15 @@
+.content
+  %form{:action => url, :method => "post", :name => "edit"}
+    .postzoom
+      .title
+        %input{:name => "title", :type => "text", :value => @note.title}
+      %p Title
+      %input{:name => "tags", :type => "text", :value => @note.tags}
+      %p Coma separated tags, ie: ta-ta-tag, kharites,
+      %p.meta
+        = @note.created_at
+        %input{:type => "submit", :value => "Save"}
+      .entry
+        %textarea{:name => "body"}
+          = @note.body 
+      .edit

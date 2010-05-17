@@ -1,0 +1,26 @@
+.footer      
+  .grid_12
+    %h2#page-heading 
+      Minimalistic publishing platform ment for developers/designers written in Sinatra framework (
+      %a{:href => "http://www.sinatrarb.com/"}
+        sinatra.rubyforge.org
+      ).
+
+  .clear
+  #site_info.grid_12
+    .box
+      %p
+        Kharites, created by
+        %a{:href => "http://github.com/jpablobr/kharites"} Jose Pablo Barrantes
+        = "© #{Date.today.year}"
+        
+  - %w{ jquery-1.3.2.min jquery-ui jquery-fluid16 code_highlighter application}.each do |js|
+    %script{:rel => 'javascript', :type => 'text/javascript', :src => "/javascripts/#{js}.js"}
+- unless Kharites::Configuration.google_analytics.nil?
+  :javascript
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    try {
+    var pageTracker = _gat._getTracker("#{Kharites::Configuration.google_analytics}");
+    pageTracker._trackPageview();
+    } catch(err) {}

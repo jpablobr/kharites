@@ -1,0 +1,3 @@
+- note.tags.split(/\s*,\s*/).each do |tag|
+  %a{:href => "/past/tags/#{Rack::Utils.escape tag}"}
+    = tag

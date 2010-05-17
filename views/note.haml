@@ -1,0 +1,22 @@
+.content
+  %h2.title
+    = note.title.to_s
+  %p.meta
+    %small
+      = haml :_tag_list, :layout => false, :locals => {:note => note}
+      = note.created_at
+    = md(note.body)
+    - if authorized?
+      .edit
+        %a{:href => "#{url_for(note)}/edit"} 
+          edit
+        %a{:href => "#{url_for(note)}/delete"} 
+          delete
+    - if Kharites::Configuration.disqus_shortname
+      #disqus_thread
+      %script{:src => "http://disqus.com/forums/#{Kharites::Configuration.disqus_shortname}/embed.js", :type => "text/javascript"}
+      %noscript
+        %a{:href => "http://#{Kharites::Configuration.disqus_shortname}.disqus.com/?url=ref"} View the discussion thread.
+      %a.dsq-brlink{:href => "http://disqus.com"}
+        blog comments powered by
+  %span.logo-disqus Disqus

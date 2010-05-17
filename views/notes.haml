@@ -1,0 +1,42 @@
+.container_12
+  .main
+    .grid_12
+      - for note in notes
+        %p 
+          = note.created_at
+        %a{ :href => "#{note.url}"} 
+          = md(note.body.to_s)
+        = note.slug
+        - if Kharites::Configuration.disqus_shortname
+          %a{ :href => "#{note.url}#disqus_thread"}
+            comments
+          = md(note.summary.to_s)
+          - if note.more?
+            %a{ :href => "#{note.url}"}
+              Continue reading &raquo
+      - if notes.empty?
+        %h2 
+          Fresh install
+          %a{ :href => "/login"}
+            log in
+          , then 
+          %a{ :href => "/notes/new"}
+            create a note
+      - else
+        %a{ :href => "/past"} 
+          past
+        - if authorized?
+          %a{ :href => "/notes/new"}
+            New note
+      - if Kharites::Configuration.disqus_shortname
+        :javascript
+            (function() {
+          var links = document.getElementsByTagName('a');
+          var query = '?';
+          for(var i = 0; i < links.length; i++) {
+            if(links[i].href.indexOf('#disqus_thread') >= 0) {
+              query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+            }
+          }
+          document.write('<script type="text/javascript" src="http://disqus.com/forums/#{Kharites::Configuration.disqus_shortname}/get_num_replies.js' + query + '"></' + 'script>');
+          })();

@@ -1,0 +1,700 @@
+html, body
+  background: none repeat scroll 0 0 #FFF
+  border-top: 15px solid #000
+  color: #000
+  font-size: 14px
+  padding: 0
+  height: 100%
+
+
+a
+  color: #000
+  font-weight: bold
+  text-decoration: none
+
+  &:hover
+    color: #333
+    text-decoration: none
+
+
+.container_12, .container_16
+  background: none repeat scroll 0 0 #FFF
+  min-height: 100%
+
+.main
+  padding-bottom: 130px
+
+.content
+  padding: 10px
+
+.footer
+  position: relative
+  margin-top: -130px
+  height: 130px
+  margin-left: 4%
+  margin-right: 4%
+  width: 92%
+
+
+h1, h2, h3, h4, h5, h6
+  line-height: 1.2em
+  margin-bottom: .3em
+
+
+h2
+  margin-top: 1em
+
+
+h5
+  font-size: 1.2em
+
+
+h6
+  font-size: 1em
+  text-transform: uppercase
+
+a
+  &#index-login
+    text-weight: thin
+    text-decoration: blink
+  &#green:hover
+    color: green
+
+  &#red:hover
+    color: red
+
+  &#blue:hover
+    color: blue
+
+  &#yellow:hover
+    color: yellow
+
+  &#purple:hover
+    color: purple
+
+h1
+  a
+    font-weight: normal
+
+  &#branding
+    font-weight: normal
+    font-size: 11em
+    text-align: left
+    background: #FFF
+    margin: 0px
+
+h3
+  a
+    font-weight: normal
+
+  &#links
+    font-weight: normal
+    font-size: 4em
+    text-align: left
+    background: #FFF
+
+  li
+    list-style: none
+    margin: 0px
+    padding: 1%
+
+h2#page-heading
+  font-weight: normal
+  padding: .5em 0 .5em 0
+  margin: 0 0 10px 0
+  border-bottom: 1px solid #ccc
+
+
+.box
+  background: #FFF
+  margin-bottom: 20px
+  padding: 10px 10px 1px 10px
+
+  h2
+    font-size: 1em
+    font-weight: normal
+    text-transform: uppercase
+    color: #fff
+    background: #333
+    margin: -10px -10px 0 -10px
+    padding: 6px 12px
+
+    a
+      color: #fff
+      background: #333 url("../img/switch_minus.gif") 97% 50% no-repeat
+      display: block
+      padding: 6px 12px
+      margin: -6px -12px
+      border: none
+
+      &.visible
+        color: #fff
+        background: #333 url("../img/switch_minus.gif") 97% 50% no-repeat
+        display: block
+        padding: 6px 12px
+        margin: -6px -12px
+        border: none
+
+
+.grid_4 .box h2 a
+  background-position: 97% 50%
+
+.grid_5 .box h2 a
+  background-position: 98% 50%
+
+
+.grid_12 .box h2 a
+  background-position: 99% 50%
+
+.box h2 a
+  &.hidden
+    background-image: url("../img/switch_plus.gif")
+
+    &:hover
+      background-image: url("../img/switch_plus.gif")
+
+  &:hover
+    background-color: #111
+
+.block
+  padding-top: 10px
+
+div.menu
+  padding: 0
+
+  h2
+    margin: 0
+
+  .block
+    padding-top: 0
+
+blockquote
+  font-family: Georgia, 'Times New Roman', serif
+  font-size: 1.2em
+  padding-left: 1em
+  border-left: 4px solid #ccc
+
+  cite
+    font-size: .9em
+
+ul, ol
+  padding-top: 20px
+
+ul
+  &.menu
+    list-style: none
+    border-top: 1px solid #bbb
+
+    li
+      margin: 0
+
+      a
+        display: block
+        padding: 4px 10px
+        border-bottom: 1px solid #ccc
+
+        &:hover
+          background: #eee
+
+        &:active
+          background: #ccc
+
+    ul
+      list-style: none
+      margin: 0
+
+      li a
+        padding-left: 30px
+
+  &.section
+    border-top: 0
+    margin-bottom: 0
+
+    li
+      text-transform: uppercase
+
+      a
+        background: #bbb
+
+        &:hover
+          background: #aaa
+
+        &:active
+          color: #fff
+          background: #666
+
+      li a
+        background: #ddd
+        border-bottom: 1px solid #eee
+
+        &:hover
+          background: #ccc
+
+        &:active
+          color: #000
+          background: #fff
+
+    ul
+      li
+        text-transform: none
+
+      &.current li a
+        background: #eee
+        border-bottom: 1px solid #fff
+
+        &:hover
+          background: #ddd
+
+        &:active
+          background: #fff
+
+    li
+      a
+        &.current
+          color: #fff
+          background: #666
+
+          &:hover
+            background: #555
+
+          &:active
+            background: #444
+
+        &.active
+          background: #fff
+          cursor: default
+
+      &.current > a.active
+        color: #fff
+        background: #666
+        cursor: default
+
+        &:hover
+          color: #fff
+          background: #666
+          cursor: default
+
+table
+  width: 100%
+  border: 1px solid #bbb
+  margin-bottom: 10px
+
+col.colC
+  width: 8em
+
+th, td
+  padding: .2em 1em
+  text-align: left
+
+thead th
+  border-bottom: 2px solid #888
+  background: #bbb
+  padding: .4em 1em .2em
+
+  &.table-head
+    font-size: 1em
+    font-weight: normal
+    text-transform: uppercase
+    color: #fff
+    background: #555
+    border: 1px solid #555
+
+tbody
+  th, td
+    border-top: 1px solid #bbb
+    border-bottom: 1px solid #bbb
+    background: #eee
+
+  tr.odd
+    th, td
+      background: #fff
+
+tfoot
+  th, td
+    border-top: 2px solid #666
+    background: #eee
+
+  tr.total
+    th, td
+      border-top: 6px double #666
+
+    th
+      text-transform: uppercase
+
+th.currency, td.currency
+  text-align: right
+
+form
+  overflow: hidden
+
+fieldset
+  border: 1px solid #bbb
+  padding: 10px
+  position: relative
+  background: #e9e9e9
+  margin-bottom: 10px
+
+legend
+  font-size: 1.1em
+  padding: .4em .8em
+  background: #fff
+  border: 1px solid #bbb
+
+fieldset
+  &.login p
+    margin-bottom: 1em
+    margin-top: 0pt
+
+  p
+    label, input
+      width: 98%
+
+    select
+      width: 99%
+
+  &.login
+    p
+      label
+        float: left
+        line-height: 2em
+        margin-right: 3%
+        text-align: right
+        width: 32%
+
+      input
+        width: 60%
+
+    input.button
+      margin-left: 35%
+
+form p.notice
+  font-weight: bold
+
+input.search
+  &.text
+    width: 66%
+
+  &.button
+    width: 28%
+    margin-left: 2%
+
+.articles
+  padding: 0
+
+  h2
+    margin: 0
+
+#download
+  h2
+    padding: 0 0 1em 1em
+
+#articles
+  padding-top: 0
+
+.article
+  border-top: 1px solid #666
+  padding-top: .5em
+
+.box .article
+  border-top: 3px solid #fff
+  padding: 13px 10px 0 10px
+
+.article
+  h2
+    font-size: 2em
+    font-weight: normal
+    text-transform: none
+    color: #333
+    background: transparent
+    padding: 0
+    margin: 0
+    border: none
+
+  h3
+    margin-bottom: .2em
+    font-size: 1.6em
+
+.box .first
+  border-top: none
+
+.article
+  h4
+    font-size: 1.2em
+    text-transform: uppercase
+    margin-bottom: .5em
+
+  a.image
+    float: left
+    margin: 3px 10px 3px 0
+    padding: 4px
+    border: 1px solid #bbb
+    background: #fff
+
+    &:hover
+      border: 1px solid #666
+
+    img
+      float: left
+
+  p.meta
+    color: #666
+    border-top: 1px dotted #999
+    border-bottom: 1px dotted #999
+    padding: .3em 0
+    margin-bottom: .8em
+
+#site_info
+  .box
+    color: #000
+    background: #FFF
+    margin-bottom: 10px
+
+  a
+    color: #000
+
+    &:hover
+      color: #000
+
+#loading
+  float: right
+  margin-right: 14px
+  margin-top: -2px
+
+.block
+  padding-bottom: 1px
+
+.toggler
+  color: #222
+  margin: 0
+  padding: 2px 5px
+  background: #eee
+  border-bottom: 1px solid #ddd
+  border-right: 1px solid #ddd
+  border-top: 1px solid #f5f5f5
+  border-left: 1px solid #f5f5f5
+  font-size: 1.1em
+  font-weight: normal
+
+.element
+  h4
+    margin: 0
+    padding: 4px
+    line-height: 1.2em
+
+  p
+    margin: 0
+    padding: 4px
+
+.float-right
+  padding: 10px 20px
+  float: right
+
+#accordian-block
+  padding-bottom: 10px
+
+#kwick-box
+  padding: 0
+  overflow: hidden
+
+  h2
+    margin: 0
+
+#kwick
+  position: relative
+
+  .kwicks
+    display: block
+    background: #999
+    height: 120px
+    list-style: none
+    margin: 0
+    overflow: hidden
+
+  li
+    float: left
+    margin: 0
+    padding: 0
+
+  .kwick
+    display: block
+    cursor: pointer
+    overflow: hidden
+    height: 100px
+    width: 215px
+    padding: 10px
+    background: #fff
+
+    span
+      color: #fff
+
+  .one
+    background: #666
+
+  .two
+    background: #777
+
+  .three
+    background: #888
+
+  .four
+    background: #999
+
+#content
+  margin: 0px auto
+  padding: 20px 0 0 0
+  float: left
+  width: 50em
+  margin-bottom: 10px
+
+.note
+  margin-top: 20px
+
+  .date
+    float: left
+    width: 29px
+    height: 32px
+    margin: 0
+    margin-top: 3px
+    margin-right: 20px
+    padding-top: 2px
+    text-transform: uppercase
+    text-align: center
+    font-size: 10px
+    font-weight: bold
+    color: #444
+
+    b
+      margin: 0
+      padding: 0
+      display: block
+      margin-top: -5px
+      font-size: 14px
+      color: #000
+
+  .title
+    margin: 0
+    padding: 0px 0 0 0
+    margin-left: 10px
+    padding-left: 10px
+    font-size: 1.4em
+
+    a
+      color: 000
+      text-decoration: none
+
+  .meta
+    margin: 0 0 10px 0
+    padding: 5px 0 5px 0
+    line-height: normal
+    text-transform: uppercase
+    color: #979680
+
+    a
+      color: #828170
+      font-size: 11px
+
+  .entry
+    margin: 0
+    padding: 0 0 20px 50px
+    
+    p
+      margin: 0px
+
+#older_notes
+  font-size: 120%
+
+#new_note
+  position: absolute
+  top: 1em
+  right: 1em
+
+.postzoom
+  margin-top: 20px
+  position: relative
+ 
+  .title
+    margin: 0
+    padding: 0px 0 0 0
+    font-size: 5em
+
+  .meta
+    margin: 15px 0 5px 0
+    padding: 0
+    line-height: normal
+    text-transform: uppercase
+    color: #979680
+
+  .entry
+    margin: 0
+    padding: 0
+    padding-top: 10px
+    padding-bottom: 20px
+
+  .edit
+    text-align: right
+    position: absolute
+    top: 0
+    right: 0
+
+form[name=edit]
+  input
+    &[name=title]
+      font-size: 100%
+      width: 16em
+    &[name=tags]
+      font-size: 100%
+      width: 80em
+    
+  textarea
+    font-size: 100%
+    width: 80em
+    height: 40em
+
+pre
+  background-color: #232323
+  padding: 15px
+  margin: 20px 0 30px
+  overflow: auto
+
+pre, code
+  font-family: 'Monaco', 'Courier New', 'Terminal', monospace
+  font-size: 14px
+  color: #e6e0db
+  overflow: auto
+
+code span
+  &.comment
+    color: #FF830F
+    font-style: italic
+
+  &.string
+    color: #A1FF25
+
+  &.brackets
+    color: green
+
+  &.symbol
+    color: #6D9CBE
+
+  &.keywords
+    color: #228DFF
+    font-weight: bold
+    
+  &.classes
+    color: #FF0CCE
+  
+  &.instancevars
+    color: #FFE30F
+
+code.html span
+  &.tag
+    color: #FFC66D
+
+  &.attribute
+    color: #FFC66D
+
+  &.string
+    color: #A5C261
+
+  &.doctype
+    color: #FFC66D
