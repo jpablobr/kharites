@@ -121,6 +121,7 @@ See `spec/spec_helper.rb`
 
 ### TODO
 
+*    Merge articles and notes feeds.
 *    Tweak [Hassle](http://github.com/pedro/hassle) to work with articles directory.
 *    Better documentation, maybe a wiki...
 *    Improve Kharites-tool so it can automate mundane tasks such as synchronization, backups, server basic administration, etc...
@@ -132,15 +133,11 @@ See `spec/spec_helper.rb`
 
 ### Resources
 
-[Sinatra](http://www.sinatrarb.com)
-
-[Post receive hooks](http://github.com/guides/post-receive-hooks)     
-   
-[Mongodb](http://www.mongodb.org)
-
-[HAML](http://haml-lang.com/)
-
-[Fluid960gs](http://www.designinfluences.com/fluid960gs/)
+*    [Sinatra](http://www.sinatrarb.com)
+*    [Post receive hooks](http://github.com/guides/post-receive-hooks)     
+*    [Mongodb](http://www.mongodb.org)
+*    [HAML](http://haml-lang.com/)
+*    [Fluid960gs](http://www.designinfluences.com/fluid960gs/)
 
 ### Note on Patches/Pull Requests
 
