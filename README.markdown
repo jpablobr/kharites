@@ -1,7 +1,7 @@
 KHARITES
 ========
 
-[Minimalistic publishing platform](http://kharites.heroku.com/) ment for developers/designers written in Sinatra framework (sinatra.rubyforge.org).
+[Minimalistic publishing platform](http://kharites.heroku.com/) meant for developers/designers written in Sinatra framework (sinatra.rubyforge.org).
 
 Initial disclaimer! This mess is gonna get raw, like sushi. So, haters to the left.
 
