@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), '..', 'app', 'kharites.rb')
+require File.join(File.dirname(__FILE__), '..', 'kharites.rb')
 
 require 'rubygems'
 require 'sinatra'

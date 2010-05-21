@@ -17,7 +17,7 @@ Anyway...
 
 *    [Topfunky's (Geoffrey Grosenbach) Peepcode blog](http://blog.peepcode.com/tutorials/2010/about-this-blog)
 *    [Jason Santa Maria](http://jasonsantamaria.com/)
-*     [Adam Wiggins](http://about.heroku.com/) [Scanty (The blog that's almost nothing)](http://github.com/adamwiggins/scanty) which also powers his awsome blog [a tornado of razorblades](http://adam.blog.heroku.com/)
+*    [Adam Wiggins](http://about.heroku.com/) [Scanty (The blog that's almost nothing)](http://github.com/adamwiggins/scanty) which also powers his awesome blog [a tornado of razorblades](http://adam.blog.heroku.com/)
 
 ### 1 - Articles:
 
