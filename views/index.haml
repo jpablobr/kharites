@@ -1,5 +1,5 @@
 .grid_6#download
-  - if @notes.nil?
+  - if @notes.count == 0
     %h2 
       Fresh install (
       %a#index-login{ :href => "/notes/login"}
