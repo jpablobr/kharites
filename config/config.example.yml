@@ -18,6 +18,7 @@ admin:
 data_directory: "articles" #git repo!
 feedburner: 'http://feedburner-url-optional.com/'
 url_base: 'http://your_full_url.com'
+google_search: ~
 disqus_shortname: ~
 google_analytics: ~
 github_token: ~
