@@ -40,7 +40,7 @@ module Kharites
 
     def summary
       if @summary ||= body.match(/(.{200}.*?\n)/m)
-        "#{@summary.to_s.strip}....\n#{references}"
+        "#{@summary.to_s.strip}....\"
       else
         body
       end
