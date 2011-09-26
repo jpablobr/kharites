@@ -8,7 +8,7 @@ admin:
   login: 'admin'
   password: 'admin'
 
- mongodb:
+mongodb:
    host: 'localhost'
    port: 27017
    db: 'kharites'

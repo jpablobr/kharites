@@ -1,20 +1,15 @@
-require 'rubygems'
-require 'sinatra'
-require 'bundler'
-Bundler.require(:default)
-Bundler.setup(:default)
+# encoding: utf-8
+%w{note article}.each { |f| require_relative 'lib/' + f }
 
 set :authorization_realm, "Protected zone"
 
-def load_or_require(file)
-  (Sinatra::Application.environment == :development) ? load(file) : require(file)
-end
+CONFIG = YAML.load_file('config/config.yml')
+# DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/kharites")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://kharites.db")
 
-%w{
-  configuration 
-  note
-  githubber 
-  article}.each { |f| load_or_require File.join(File.dirname(__FILE__), 'lib', "#{f}.rb") }
+DataMapper.auto_upgrade!
+
+require 'yaml'
 
 helpers do
   include Rack::Utils
@@ -33,11 +28,11 @@ helpers do
   def revision; Kharites::Configuration.revision || nil  end
 
   def authorize(login, password)
-    login == Kharites::Configuration.admin.login && password == Kharites::Configuration.admin.password 
+    login == Kharites::Configuration.admin.login && password == Kharites::Configuration.admin.password
   end
 
   def hostname
-    (request.env['HTTP_X_FORWARDED_SERVER'] =~ /[a-z]*/) ? request.env['HTTP_X_FORWARDED_SERVER'] : request.env['HTTP_HOST'] 
+    (request.env['HTTP_X_FORWARDED_SERVER'] =~ /[a-z]*/) ? request.env['HTTP_X_FORWARDED_SERVER'] : request.env['HTTP_HOST']
   end
 
   def url_for(obj)
@@ -71,16 +66,6 @@ get '/:article_slug' do
   set :views  => Kharites::Configuration.data_directory + "/" + @article.slug + "/views"
   set :public => Kharites::Configuration.data_directory + "/" + @article.slug + "/public"
   haml :index, :locals => {:article => @article}
-end
-
-post '/github/sync' do
-  throw :halt, 404 and return if not Kharites::Configuration.github_token or Kharites::Configuration.github_token.nil?
-  unless params[:token] && params[:token] == Kharites::Configuration.github_token
-    throw :halt, [500, "You did wrong.\n"] and return
-  else
-    # Synchronize articles in data directory to Github repo
-    system "cd #{Kharites::Configuration.data_directory}; git pull origin master"
-  end
 end
 
 ### Notes
@@ -130,17 +115,17 @@ end
 
 post '/notes' do
   login_required
-  note = Kharites::Note.new(:title => params[:title], 
-                           :body => params[:body], 
-                           :created_at => Time.now, 
-                           :slug => Kharites::Note.make_slug(params[:title]), 
+  note = Kharites::Note.new(:title => params[:title],
+                           :body => params[:body],
+                           :created_at => Time.now,
+                           :slug => Kharites::Note.make_slug(params[:title]),
                            :tags => params[:tags]
                            )
   note.save
   redirect "/past/#{url_for(note)}"
 end
 
-get '/past/:slug/delete' do 
+get '/past/:slug/delete' do
   reset_view
   login_required
   @note = Kharites::Note.last(:conditions => {:slug => params[:slug]})
@@ -176,5 +161,37 @@ post '/past/:slug' do
   redirect "/past/#{url_for(note)}"
 end
 
-### SASS
-use Hassle
+module Kharites
+  class Configuration
+    class << self
+      def load
+        raw_config = YAML.load_file('config/config.yml')
+        @@config   = nested_hash_to_openstruct(raw_config)
+      end
+
+      def data_directory_path
+        Pathname.new(data_directory)
+      end
+
+      def method_missing(method_name, *attributes)
+        if @@config.respond_to?(method_name.to_sym)
+          return @@config.send(method_name.to_sym)
+        else
+          super
+        end
+      end
+    end
+
+    private
+
+    def self.nested_hash_to_openstruct(obj)
+      if obj.is_a? Hash
+        obj.each { |key, value| obj[key] = nested_hash_to_openstruct(value) }
+        OpenStruct.new(obj)
+      else
+        return obj
+      end
+    end
+  end
+  Kharites::Configuration.load
+end

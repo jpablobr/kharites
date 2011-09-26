@@ -1,12 +1,11 @@
 module Kharites
   class Article
-
     class << self
 
       # Creates OpenStrucs for all articles
       #
       # Example:
-      # 
+      #
       # <tt>Kharites::Article.all.each { |article| puts article.title }<tt>
       def all
         articles = []
@@ -42,16 +41,17 @@ module Kharites
       # Returns an array with all the articles .yml files
       def extract_articles_from_directories
         directories = []
-        load_articles_directories.each do |dir| 
+        load_articles_directories.each do |dir|
           file = Dir["#{dir}/*.yml"].first
-          directories << file          
+          directories << file
         end
         return directories
       end
 
       # Returns an article OpenStruct based on the .yml file
       def extract_article_info_from(file)
-        raise ArgumentError, "#{file} is not a readable file" unless File.exist?(file) and File.readable?(file)
+        raise ArgumentError, "#{file} is not a readable file"
+        unless File.exist?(file) and File.readable?(file)
         raw_config = YAML.load_file(file)
         @@config   = nested_hash_to_openstruct(raw_config)
       end
@@ -75,6 +75,6 @@ module Kharites
           return obj
         end
       end
-    end #self private
-  end #Article
-end #Kharites
+    end
+  end
+end

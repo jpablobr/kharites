@@ -8,7 +8,7 @@ Initial disclaimer! This mess is gonna get raw, like sushi. So, haters to the le
 Anyway...
 
 ### Main features
-    
+
 *   Every Article may have a totaly different layout.
 *   Notes feature for simple day to day notes.
 *   Totally open source. Hack it apart and send us a patch!
@@ -35,13 +35,13 @@ Notes are quick-and-dirty. They are loosely structured and pefect for your fat f
 
 #### Comments
 
-There are no comments by default. If you wish to activate comments, create an account and a website on Disqus (disqus.com) and enter the website shortname as the :disqus_shortname value in the Blog config struct. 
+There are no comments by default. If you wish to activate comments, create an account and a website on Disqus (disqus.com) and enter the website shortname as the :disqus_shortname value in the Blog config struct.
 
 #### Import data
 
 Christopher Swenson has a [Wordpress importer](github.com/swenson/scanty_wordpress_import)
 
-Other kinds of data can be imported easily, take a look at the rake task :import for an example of loading from a YAML file with field names that match the database schema. 
+Other kinds of data can be imported easily, take a look at the rake task :import for an example of loading from a YAML file with field names that match the database schema.
 
 #### Features
 
@@ -122,19 +122,18 @@ See `spec/spec_helper.rb`
 ### TODO
 
 *    Merge articles and notes feeds.
-*    Tweak [Hassle](http://github.com/pedro/hassle) to work with articles directory.
 *    Better documentation, maybe a wiki...
 *    Improve Kharites-tool so it can automate mundane tasks such as synchronization, backups, server basic administration, etc...
 *    To use webkit2png.py to take screenshots of each article and display it in a grid, slideshow or whatever!
 *    Content synchronization with [Codebasehq respository mirroing](http://www.codebasehq.com/help/other-features/repository-mirroring) for free private repos.
 *    Work on better tests suite...
 *    Improve notes textarea. (mongo bug when editing notes)
-*    Styles for mobile devices (for notes).    
+*    Styles for mobile devices (for notes).
 
 ### Resources
 
 *    [Sinatra](http://www.sinatrarb.com)
-*    [Post receive hooks](http://github.com/guides/post-receive-hooks)     
+*    [Post receive hooks](http://github.com/guides/post-receive-hooks)
 *    [Mongodb](http://www.mongodb.org)
 *    [HAML](http://haml-lang.com/)
 *    [Fluid960gs](http://www.designinfluences.com/fluid960gs/)
