@@ -1,12 +1,11 @@
 # encoding: utf-8
+
 %w{note article}.each { |f| require_relative 'lib/' + f }
 
 set :authorization_realm, "Protected zone"
 
 CONFIG = YAML.load_file('config/config.yml')
-# DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/kharites")
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://kharites.db")
-
 DataMapper.auto_upgrade!
 
 require 'yaml'
@@ -17,22 +16,29 @@ helpers do
   def markdown(text) Maruku.new(text).to_html end
   alias_method :md, :markdown
 
-  def feed_url; Kharites::Configuration.feedburner || '/feed' end
-
-  def not_found; File.read( File.join( Sinatra::Application.public, '404.html') ) end
-
-  def error; File.read( File.join( Sinatra::Application.public, '500.html') ) end
-
-  def config; Kharites::Configuration end
-
-  def revision; Kharites::Configuration.revision || nil  end
-
-  def authorize(login, password)
-    login == Kharites::Configuration.admin.login && password == Kharites::Configuration.admin.password
+  def feed_url
+    Kharites::Configuration.feedburner || '/feed'
   end
 
-  def hostname
-    (request.env['HTTP_X_FORWARDED_SERVER'] =~ /[a-z]*/) ? request.env['HTTP_X_FORWARDED_SERVER'] : request.env['HTTP_HOST']
+  def not_found
+    File.read(File.join(Sinatra::Application.public, '404.html'))
+  end
+
+  def error
+    File.read(File.join(Sinatra::Application.public, '500.html'))
+  end
+
+  def config
+    Kharites::Configuration
+  end
+
+  def revision
+    Kharites::Configuration.revision || nil
+  end
+
+  def authorize(login, password)
+    login == Kharites::Configuration.admin.login &&
+      password == Kharites::Configuration.admin.password
   end
 
   def url_for(obj)
@@ -45,9 +51,7 @@ helpers do
     set :views  => File.join(File.dirname(__FILE__), 'views')
     set :public => File.join(File.dirname(__FILE__), 'public')
   end
-end #helpers
-
-### index
+end
 
 get '/' do
   reset_view
@@ -57,8 +61,6 @@ get '/' do
   haml :index
 end
 
-### Articles
-
 get '/:article_slug' do
   @article = Kharites::Article.find_one(params[:article_slug])
   throw :halt, [404, not_found ] unless @article
@@ -67,8 +69,6 @@ get '/:article_slug' do
   set :public => Kharites::Configuration.data_directory + "/" + @article.slug + "/public"
   haml :index, :locals => {:article => @article}
 end
-
-### Notes
 
 get '/notes/archive' do
   reset_view
